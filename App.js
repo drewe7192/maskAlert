@@ -3,30 +3,18 @@ import Header from "./components/Header";
 import { Button, StyleSheet, View, TouchableOpacity } from "react-native";
 
 export default function App() {
-  const [name, setName] = useState("Drew");
-
+  const [alert, setAlert] = useState("Robot alert");
   const clickHandler = () => {
-    setName("Coool Drew");
-    name == "Coool Drew" ? setName("Drew") : null;
+    setAlert("Darth Vader alert");
+    alert == "Darth Vader alert" ? setAlert("Robot alert") : null;
   };
+
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.content}>
-        {/* body component */}
-        <TouchableOpacity
-          style={{
-            borderWidth: 1,
-            borderColor: "rgba(0,0,0,0.2)",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 100,
-            height: 100,
-            backgroundColor: "#fff",
-            borderRadius: 50,
-          }}
-        >
-          <Button title={name} onPress={clickHandler} />
+        <TouchableOpacity style={styles.mainButton}>
+          <Button title={alert} onPress={clickHandler} />
         </TouchableOpacity>
       </View>
     </View>
@@ -39,7 +27,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   content: {
-    paddingTop: 330,
+    paddingTop: 250,
+    justifyContent: "center",
     alignItems: "center",
+  },
+
+  mainButton: {
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.2)",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 200,
+    height: 200,
+    backgroundColor: "#fff",
+    borderRadius: 100,
   },
 });
