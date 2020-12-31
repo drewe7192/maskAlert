@@ -5,8 +5,14 @@ import { Ionicons } from "@expo/vector-icons";
 export default function Header() {
   return (
     <View style={styles.header}>
-      <Text style={styles.title1}>Mask</Text>
-      <Text style={styles.title2}>Alert</Text>
+      <View>
+        <Text style={{ fontWeight: "bold", fontSize: 50, color: "black" }}>
+          Mask
+        </Text>
+        <Text style={{ fontWeight: "bold", fontSize: 50, color: "crimson" }}>
+          Alert
+        </Text>
+      </View>
       <View style={styles.settings}>
         <Ionicons name="settings-sharp" size={34} color="black" />
       </View>
@@ -16,25 +22,19 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   header: {
-    height: 110,
-    padding: 30,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 16,
     backgroundColor: "white",
   },
-
-  title1: {
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: 50,
-    color: "black",
-  },
-  title2: {
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: 50,
-    color: "red",
-  },
   settings: {
+    backgroundColor: "#e4e6eb",
+    width: 60,
+    height: 60,
+    borderRadius: 60,
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
