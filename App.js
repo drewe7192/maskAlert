@@ -1,21 +1,39 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
-import { Button, StyleSheet, View, TouchableOpacity } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  StatusBar,
+} from "react-native";
 
 export default function App() {
-  const [alert, setAlert] = useState("Robot alert");
+  const [alert, setAlert] = useState("Alert 1");
   const clickHandler = () => {
-    setAlert("Darth Vader alert");
-    alert == "Darth Vader alert" ? setAlert("Robot alert") : null;
+    setAlert("Alert 2");
+    alert == "Alert 2" ? setAlert("Alert 1") : null;
   };
 
   return (
     <View style={styles.container}>
-      <Header />
-      <View style={styles.content}>
-        <TouchableOpacity style={styles.mainButton}>
-          <Button title={alert} onPress={clickHandler} />
-        </TouchableOpacity>
+      <ScrollView>
+        <StatusBar barStyle="dark-content" />
+        <Header />
+        <View style={styles.content}>
+          <TouchableOpacity style={styles.mainButton}>
+            <Button title={alert} onPress={clickHandler} color="black" />
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+      <View style={{ paddingVertical: 50, alignItems: "center" }}>
+        <Text style={{ textAlign: "center" }}>
+          Tapping this button will help you tell that person in front of you to
+          wear a damn mask.
+        </Text>
+        <Text>Help us all Stay Safe TOGETHER : )</Text>
       </View>
     </View>
   );
@@ -34,7 +52,7 @@ const styles = StyleSheet.create({
 
   mainButton: {
     borderWidth: 1,
-    borderColor: "rgba(0,0,0,0.2)",
+    borderColor: "crimson",
     alignItems: "center",
     justifyContent: "center",
     width: 200,
